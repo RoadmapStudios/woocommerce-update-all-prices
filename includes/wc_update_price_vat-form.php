@@ -16,14 +16,29 @@ $wc_update_price_percent_settings = get_option('wc_update_price_percent_settings
               $simple_products = wc_get_products( array(
                    'type' => 'simple',
                    'limit' => -1,
+				   'post_status' => 'publish',
                 ) );
                 
-            $variation_products = wc_get_products( array(
-               'type' => 'variation',
+				$variation_products = wc_get_products( array(
+							   'type' => 'variation',
+							   'limit' => -1,
+							   'post_status' => 'publish',
+							) );
+				$variable_subscription = wc_get_products( array(
+								   'type' => 'variable-subscription',
+								   'limit' => -1,
+								   'post_status' => 'publish',
+								) );
+								
+				$subscription = wc_get_products( array(
+               'type' => 'subscription',
                'limit' => -1,
+			   'post_status' => 'publish',
             ) );
-                
-            $products = array_merge( $simple_products, $variation_products );
+			
+			$products_woocmmerce = array_merge( $simple_products, $variation_products );
+			$products_subscription = array_merge( $subscription, $variable_subscription );
+			$products = array_merge( $products_subscription, $products_woocmmerce );
            
             $len = count($products);
             
