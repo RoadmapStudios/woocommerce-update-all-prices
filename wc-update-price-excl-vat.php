@@ -6,7 +6,7 @@
  * Author:              Roadmap Studios
  * Author URI:          https://roadmapstudios.com
  *
- * Version:             1.0.0
+ * Version:             1.1.0
  * Requires at least:   4.9.0
  * Tested up to:        5.0.2
  *
