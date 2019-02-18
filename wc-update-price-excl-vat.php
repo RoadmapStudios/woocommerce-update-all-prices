@@ -1,20 +1,24 @@
 <?php
  /**
- * Plugin Name: 		WC Update Prices to Excl.VAT
+ * Plugin Name: 		WC Update all Prices to Excl.VAT
  * Plugin URI: 			https://roadmapstudios.com/
  * Description: 		Update WooCommerce prices to Excl. VAT
- * Author:              Roadmap Studios
- * Author URI:          https://roadmapstudios.com
- *
+ * Author:        Roadmap Studios
+ * Author URI:    https://roadmapstudios.com
  * Version:             1.1.0
- * Requires at least:   4.9.0
- * Tested up to:        5.0.2
+ *
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  *
  * @category            Prices
- * @copyright           Copyright © 2018 Roadmap Studios
+ * @package             WC-Update-Prices
+ * @copyright           Copyright © 2019 Roadmap Studios
  * @author              Roadmap Studios
- * @package             WooCommerce
+ * @license             http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
+ *
+ * WC requires at least: 3.3
+ * WC tested up to: 3.5.4
  */
 
 
