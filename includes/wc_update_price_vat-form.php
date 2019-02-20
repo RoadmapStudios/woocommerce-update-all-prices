@@ -8,7 +8,7 @@ if (isset($_POST['save_wc_update_price_percent_nonce']) && wp_verify_nonce($_POS
     if(isset($_POST['amount'])) {
 //$wc_update_price_percent_settings = get_option('wc_update_price_percent_settings');
 // print_r($wc_update_price_percent_settings);
-        $wc_update_price_percent = $_POST['amount'];
+        $wc_update_price_percent = sanitize_text_field($_POST['amount']);
         //update_option('wc_update_price_percent_settings', $wc_update_price_percent);
         //$wc_update_price_percent_settings = get_option('wc_update_price_percent_settings');
 
@@ -165,15 +165,11 @@ if (isset($_POST['save_wc_update_price_percent_nonce']) && wp_verify_nonce($_POS
                                     <input name="amount" min="100" max="199" required title="3 characters minimum"  type="number" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '0'; ?>" class="regular-text" />%
                                 </td>
                             </tr>
-                            
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
 
-           
             <?php wp_nonce_field('save_wc_update_price_percent', 'save_wc_update_price_percent_nonce');
             ?>
             <?php submit_button(); ?>
