@@ -162,7 +162,7 @@ if (isset($_POST['save_wc_update_price_percent_nonce']) && wp_verify_nonce($_POS
                             <tr>
                                 <th scope="row"><label for="qr_code_type"><?php _e('Percentage', 'tcawp') ?></label></th>
                                 <td>
-                                    <input name="amount" type="number" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '0'; ?>" class="regular-text">%
+                                    <input name="amount" min="100" max="199" required title="3 characters minimum"  type="number" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '0'; ?>" class="regular-text" />%
                                 </td>
                             </tr>
                             
