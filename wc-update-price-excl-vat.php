@@ -5,7 +5,7 @@
  * Description: 		Update WooCommerce prices to Excl. VAT
  * Author:        Roadmap Studios
  * Author URI:    https://roadmapstudios.com
- * Version:             1.1.0
+ * Version:             1.1.1
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -18,18 +18,18 @@
  * @license             http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  *
  * WC requires at least: 3.3
- * WC tested up to: 3.5.4
+ * WC tested up to: 3.7.1
  */
 
 
-add_filter('admin_menu', 'register_my_custom_submenu_page');
+add_filter('admin_menu', 'wcup_register_my_custom_submenu_page');
     function wcup_register_my_custom_submenu_page()
     {
         add_submenu_page( 'woocommerce', "WC Update Prices", "WC Update Prices", "manage_options", "wc-updated-prices-excl-vat", "wc_update_product_price_form" );
     }
 
 
-    function wcup_wc_update_product_price_form()
+    function wc_update_product_price_form()
     {
         include plugin_dir_path(__FILE__) . 'includes/wc_update_price_vat-form.php'; //
     }
