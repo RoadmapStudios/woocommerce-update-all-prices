@@ -1,20 +1,15 @@
 name: Deploy to WordPress.org
 on:
-    release:
-        types: [released]
+    push:
+        tags:
+          - "v*.*.*"
 jobs:
     tag:
         name: New Release
         runs-on: ubuntu-latest
-        env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         steps:
-            - uses: act10ns/slack@v2
-              with:
-                  status: starting
-              if: ${{ always() }}
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: WordPress Plugin Deploy
               id: deploy
               uses: 10up/action-wordpress-plugin-deploy@stable
@@ -25,7 +20,7 @@ jobs:
                   SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
                   SLUG: wc-update-all-prices-to-excl-vat
             - name: Upload release asset
-              uses: actions/upload-release-asset@v1
+              uses: softprops/action-gh-release@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
@@ -33,8 +28,3 @@ jobs:
                   asset_path: ${{github.workspace}}/wc-update-all-prices.zip
                   asset_name: wc-update-all-prices.zip
                   asset_content_type: application/zip
-            - uses: act10ns/slack@v2
-              with:
-                  status: ${{ job.status }}
-                  steps: ${{ toJson(steps) }}
-              if: ${{ always() }}
