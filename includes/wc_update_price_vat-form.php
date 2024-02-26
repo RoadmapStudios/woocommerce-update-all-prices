@@ -6,12 +6,8 @@ if ( isset( $_POST['save_wc_update_price_percent_nonce'] ) && wp_verify_nonce( $
 	$error_message = '';
 
 	if ( isset( $_POST['amount'] ) ) {
-		//$wc_update_price_percent_settings = get_option('wc_update_price_percent_settings');
-		// print_r($wc_update_price_percent_settings);
-		$wc_update_price_percent = sanitize_text_field( $_POST['amount'] );
-		//update_option('wc_update_price_percent_settings', $wc_update_price_percent);
-		//$wc_update_price_percent_settings = get_option('wc_update_price_percent_settings');
 
+		$wc_update_price_percent = sanitize_text_field( $_POST['amount'] );
 		if ( is_numeric( $wc_update_price_percent ) ) {
 
 				$simple_products = wc_get_products(
@@ -155,7 +151,6 @@ if ( isset( $_POST['save_wc_update_price_percent_nonce'] ) && wp_verify_nonce( $
 		}
 	}
 }
-//$wc_update_price_percent_settings = get_option('wc_update_price_percent_settings');
 ?>
 <div class="wrap tc_wrap">
 	<?php if ( ! empty( $error_message ) ) { ?>
